@@ -38,7 +38,7 @@ public class Garden{
     public void someThings(){
         setThing(10,10, new Flower(this, 10,10)); //rose
         setThing(15,15, new Flower(this, 15,15)); //violet
-        setThing(3,3, new Carnivorous(this, 3,3));
+        setThing(11,11, new Carnivorous(this, 11,11));
     
 
         
@@ -48,15 +48,12 @@ public class Garden{
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];
-
-                if(thing != null && thing instanceof Flower)
-                {
-                    Flower x = (Flower) thing;
-                    x.act();
+                if(thing != null && thing instanceof Carnivorous){
+                    Carnivorous carnivorous = (Carnivorous) thing;
+                    carnivorous.act();
                 }
-                if(thing != null && thing instanceof Carnivorous)
-                {
-                    Carnivorous flower = (Carnivorous) thing;
+                else if(thing != null && thing instanceof Flower){
+                    Flower flower = (Flower) thing;
                     flower.act();
                 }
             }

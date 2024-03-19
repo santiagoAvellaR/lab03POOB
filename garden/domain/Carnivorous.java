@@ -1,4 +1,6 @@
 package domain;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -18,27 +20,45 @@ public class Carnivorous extends Flower{
          this.color = color.blue;
          
     }
-
-    @Override
-    public void act() {
-    // Verifica si hay una flor viva en la vecindad
-    int comer = 0;
-    for (int r = 0; r <= 39; r++) {
-        for (int c = 0; c <= 39; c++) {
-            Thing thing = garden.getThing(r, c);
-            if (thing instanceof Flower) {
-                Flower flower = (Flower) thing;
-                System.out.println(flower.isAlive());
-                if (flower.nextState == 'a' && comer == 0) {
-                    // Come la flor
-                    garden.setThing(row, column, this);
-                    garden.setThing(flower.getRow(), flower.getColumn(), this);
-                    flower.nextState = flower.DEAD;
-                    comer = 1;
+    
+    private int[] searchTheClosestFlowerAlive(){
+        int[] coordinates = {100, 100};
+        int radio = 1;
+        while(!(radio + column < 40 || radio - column >= 0 || radio + row < 40 || radio - row >= 0) && coordinates[0] == 100){
+            for(int i = row-radio; i <= row+radio; i++){
+                for(int j = row-radio; j <= row+radio; j++){
+                    try {
+                        Thing thing = garden.getThing(i, j);
+                        if(thing instanceof Flower && !(thing instanceof Carnivorous)){
+                            Flower flower = (Flower) thing;
+                            if(flower.isAlive()){
+                                coordinates[0] = i;
+                                coordinates[0] = j;
+                                break;
+                            }
+                        }
+                    }
+                    catch (Exception e){}
                 }
             }
+            radio++;
         }
+        return coordinates;
     }
+    
+    @Override
+    public void act() {
+        // Verifica si hay una flor viva en la vecindad
+        int[] coordinates = searchTheClosestFlowerAlive();
+        if(coordinates[0] != 100){
+            Thing thing = garden.getThing(coordinates[0], coordinates[1]);
+            Flower flower= (Flower) thing;
+            flower.changeState('d');
+            garden.setThing(row, column, null);
+            row = coordinates[0];
+            column = coordinates[1];
+            garden.setThing(coordinates[0], coordinates[1],this);
+        }
     }
 
     

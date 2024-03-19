@@ -1,18 +1,15 @@
 #BlueJ package file
-dependency1.from=GardenGUI
-dependency1.to=GardenGUI
-dependency1.type=UsesDependency
-objectbench.height=137
-objectbench.width=1514
+objectbench.height=138
+objectbench.width=1896
 package.divider.horizontal=0.6
-package.divider.vertical=0.813971340839304
-package.editor.height=631
-package.editor.width=1401
+package.divider.vertical=0.8483263598326359
+package.editor.height=804
+package.editor.width=1806
 package.editor.x=0
-package.editor.y=36
-package.frame.height=881
-package.frame.width=1553
-package.numDependencies=1
+package.editor.y=0
+package.frame.height=1056
+package.frame.width=1936
+package.numDependencies=0
 package.numTargets=1
 package.showExtends=true
 package.showUses=true

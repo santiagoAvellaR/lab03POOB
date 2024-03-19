@@ -23,20 +23,24 @@ public abstract class Agent{
      */
     protected void turn(){
         time++;
-    }    
+    }
     
     
     /** The agent moves
      */
     public abstract void move();
     
+    /** The agent change to the nextState
+     */
+    public abstract void changeState(char nextState);
+    
      /**Returns the time
     @return 
      */   
     public final int getTime(){
         return time;
-    }    
-
+    }
+    
     /**Returns if alive
     @return true, if ALIVE; false, otherwise
      */
