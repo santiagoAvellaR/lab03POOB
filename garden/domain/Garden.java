@@ -18,6 +18,7 @@ public class Garden{
                 setThing(LENGTH-i,LENGTH-j,new Water());
             }
         }
+       
         
         someThings();
     }
@@ -37,11 +38,10 @@ public class Garden{
     public void someThings(){
         setThing(10,10, new Flower(this, 10,10)); //rose
         setThing(15,15, new Flower(this, 15,15)); //violet
-        setThing(16,16, new Carnivorous(this, 16,16));
-        setThing(17,17, new Flower(this, 17,17)); //violet
-        setThing(18,18, new Flower(this, 18,18)); //violet
-
-        
+        setThing(16,16, new Carnivorous(this, 16,16)); //venus
+        setThing(5,5, new Carnivorous(this, 5,5)); //sundeuos
+        setThing(0,38, new Sand(this, 0, 38)); //tatacoa
+        setThing(0,39, new Sand(this, 0, 39)); //sahara 
     }
     
     public void ticTac(){
