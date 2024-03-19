@@ -1,11 +1,10 @@
 package domain;
 import java.util.*;
-
-
 /*No olviden adicionar la documentacion*/
 public class Garden{
     static public int LENGTH=40;
     private Thing[][] garden;
+    private int count = 0;
     public Garden() {
         garden=new Thing[LENGTH][LENGTH];
         for (int r=0;r<LENGTH;r++){
@@ -38,26 +37,34 @@ public class Garden{
     public void someThings(){
         setThing(10,10, new Flower(this, 10,10)); //rose
         setThing(15,15, new Flower(this, 15,15)); //violet
-        setThing(11,11, new Carnivorous(this, 11,11));
-    
+        setThing(16,16, new Carnivorous(this, 16,16));
+        setThing(17,17, new Flower(this, 17,17)); //violet
+        setThing(18,18, new Flower(this, 18,18)); //violet
 
         
     }
     
     public void ticTac(){
+        
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];
                 if(thing != null && thing instanceof Carnivorous){
                     Carnivorous carnivorous = (Carnivorous) thing;
+                    System.out.println("time" + carnivorous.getTime() + "count " + count);
+                    
                     carnivorous.act();
+                    
                 }
                 else if(thing != null && thing instanceof Flower){
                     Flower flower = (Flower) thing;
+                    System.out.println("flor time" + flower.getTime() + "count " + count);
+
                     flower.act();
                 }
             }
         }
+        count++;
     }
 
 }

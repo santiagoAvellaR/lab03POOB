@@ -18,12 +18,15 @@ public class Flower extends Agent implements Thing{
      * @param column 
      */
     public Flower(Garden garden,int row, int column){
+        
         this.garden=garden;
         this.row=row;
         this.column=column;
         nextState=Agent.ALIVE;
         garden.setThing(row,column,(Thing)this);  
         color=Color.red;
+        changeState(nextState);
+    
     
     }
 
@@ -62,16 +65,17 @@ public class Flower extends Agent implements Thing{
         state = nextState;
         this.nextState = nextState;
     }
-    
+
     public void act(){
-        turn();
+        
         if(getTime()%3==0){
             changeState('d');
             color = Color.orange;
         }
         else if(getTime()%5==0){
-            state =Agent.ALIVE;
+            changeState('a');
             color = Color.red;
         }
+        turn();
     }
 }

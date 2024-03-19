@@ -40,6 +40,10 @@ public abstract class Agent{
     public final int getTime(){
         return time;
     }
+    public final void setTime(int time){
+        time = time;
+    }
+    
     
     /**Returns if alive
     @return true, if ALIVE; false, otherwise

@@ -21,46 +21,43 @@ public class Carnivorous extends Flower{
          
     }
     
-    private int[] searchTheClosestFlowerAlive(){
-        int[] coordinates = {100, 100};
-        int radio = 1;
-        while(!(radio + column < 40 || radio - column >= 0 || radio + row < 40 || radio - row >= 0) && coordinates[0] == 100){
-            for(int i = row-radio; i <= row+radio; i++){
-                for(int j = row-radio; j <= row+radio; j++){
-                    try {
-                        Thing thing = garden.getThing(i, j);
-                        if(thing instanceof Flower && !(thing instanceof Carnivorous)){
-                            Flower flower = (Flower) thing;
-                            if(flower.isAlive()){
-                                coordinates[0] = i;
-                                coordinates[0] = j;
-                                break;
-                            }
+    private int[] findClosestAliveFlower(int targetRow, int targetColumn) {
+        int[] closestPosition = new int[]{-1, -1};
+        int minDistance = Integer.MAX_VALUE;
+    
+        for (int i = 0; i < 39; i++) {
+            for (int j = 0; j < 39; j++) {
+                if ( garden.getThing(i, j) instanceof Flower && !(garden.getThing(i, j) instanceof Carnivorous)) {
+                    Flower flower = (Flower) garden.getThing(i, j);
+                    if (flower.isAlive()) {
+                        int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestPosition[0] = i;
+                            closestPosition[1] = j;
                         }
                     }
-                    catch (Exception e){}
                 }
             }
-            radio++;
         }
-        return coordinates;
+    
+        return closestPosition;
     }
     
     @Override
     public void act() {
-        // Verifica si hay una flor viva en la vecindad
-        int[] coordinates = searchTheClosestFlowerAlive();
-        if(coordinates[0] != 100){
-            Thing thing = garden.getThing(coordinates[0], coordinates[1]);
-            Flower flower= (Flower) thing;
+        
+        int[] closestFlowerPosition = findClosestAliveFlower(row, column);
+        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
+            System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
+            Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
             flower.changeState('d');
             garden.setThing(row, column, null);
-            row = coordinates[0];
-            column = coordinates[1];
-            garden.setThing(coordinates[0], coordinates[1],this);
+            row = closestFlowerPosition[0];
+            column = closestFlowerPosition[1];
+            garden.setThing(closestFlowerPosition[0], closestFlowerPosition[1], this);
         }
-    }
-
-    
+        turn();
+    }  
 }
     
