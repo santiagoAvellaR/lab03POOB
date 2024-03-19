@@ -49,23 +49,22 @@ public class Garden{
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];
-                if(thing != null && thing instanceof Carnivorous){
+                if(thing != null && thing instanceof Flower && !(thing instanceof Carnivorous)){
+                    Flower flower = (Flower) thing;
+                    System.out.println("flor time" + flower.getTime() + "count " + count);
+
+                    flower.act();
+                }
+                else if(thing != null && thing instanceof Carnivorous){
                     Carnivorous carnivorous = (Carnivorous) thing;
                     System.out.println("time" + carnivorous.getTime() + "count " + count);
                     if(carnivorous.getTime() == count){
                         carnivorous.act();
                     }
-                    else
-                    {
+                    else{
                         carnivorous.setTime(count-1);
                     }
                     
-                }
-                else if(thing != null && thing instanceof Flower){
-                    Flower flower = (Flower) thing;
-                    System.out.println("flor time" + flower.getTime() + "count " + count);
-
-                    flower.act();
                 }
             }
         }
