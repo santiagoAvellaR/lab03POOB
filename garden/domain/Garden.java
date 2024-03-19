@@ -52,8 +52,13 @@ public class Garden{
                 if(thing != null && thing instanceof Carnivorous){
                     Carnivorous carnivorous = (Carnivorous) thing;
                     System.out.println("time" + carnivorous.getTime() + "count " + count);
-                    
-                    carnivorous.act();
+                    if(carnivorous.getTime() == count){
+                        carnivorous.act();
+                    }
+                    else
+                    {
+                        carnivorous.setTime(count-1);
+                    }
                     
                 }
                 else if(thing != null && thing instanceof Flower){

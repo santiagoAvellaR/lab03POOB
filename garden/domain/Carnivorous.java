@@ -46,7 +46,7 @@ public class Carnivorous extends Flower{
     
     @Override
     public void act() {
-        
+        turn();
         int[] closestFlowerPosition = findClosestAliveFlower(row, column);
         if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
             System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
@@ -57,7 +57,7 @@ public class Carnivorous extends Flower{
             column = closestFlowerPosition[1];
             garden.setThing(closestFlowerPosition[0], closestFlowerPosition[1], this);
         }
-        turn();
+        
     }  
 }
     

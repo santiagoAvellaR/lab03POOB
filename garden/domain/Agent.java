@@ -7,7 +7,7 @@ public abstract class Agent{
     
     public final static char UNKNOWN='u', ALIVE='a', DEAD='d';
     protected char state;
-    private int time;
+    private int time = 0;
 
     /**Create a new agent
      * 
