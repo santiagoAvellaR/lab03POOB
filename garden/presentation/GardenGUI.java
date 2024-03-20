@@ -37,11 +37,11 @@ public class GardenGUI extends JFrame{
     private void prepareActions(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);       
         buttonTicTac.addActionListener(
-            new ActionListener(){
-                public void actionPerformed(ActionEvent e) {
-                    buttonTicTacAction();
-                }
-            });
+        new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                buttonTicTacAction();
+            }
+        });
 
     }
 

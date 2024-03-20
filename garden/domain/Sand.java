@@ -27,11 +27,10 @@ public class Sand implements Thing
        
     }
      public void act(){
-        
-
+         color = color.brighter();
     }
     public final int shape(){
-        return Thing.ROUND;
+        return Thing.SQUARE;
     }
     public final Color getColor(){
         return color;

@@ -12,7 +12,6 @@ import java.util.Arrays;
 public class Carnivorous extends Flower{
     // instance variables - replace the example below with your own
     private Garden garden;
-    private int contadorTic;
     
     public Carnivorous(Garden garden, int row, int column){
          super(garden, row, column);
@@ -21,10 +20,9 @@ public class Carnivorous extends Flower{
          
     }
     
-    private int[] findClosestAliveFlower(int targetRow, int targetColumn) {
+    private int[] findClosestFlowerAlive(int targetRow, int targetColumn) {
         int[] closestPosition = new int[]{-1, -1};
         int minDistance = Integer.MAX_VALUE;
-    
         for (int i = 0; i < 39; i++) {
             for (int j = 0; j < 39; j++) {
                 if ( garden.getThing(i, j) instanceof Flower && !(garden.getThing(i, j) instanceof Carnivorous)) {
@@ -40,24 +38,27 @@ public class Carnivorous extends Flower{
                 }
             }
         }
-    
         return closestPosition;
     }
     
     @Override
     public void act() {
-        
-        int[] closestFlowerPosition = findClosestAliveFlower(row, column);
+        int[] closestFlowerPosition = findClosestFlowerAlive(row, column);
         if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
             System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
             Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
             flower.changeState('d');
-            garden.setThing(row, column, null);
-            row = closestFlowerPosition[0];
-            column = closestFlowerPosition[1];
-            garden.setThing(closestFlowerPosition[0], closestFlowerPosition[1], this);
+            move(closestFlowerPosition[0], closestFlowerPosition[1]);
         }
         turn();
     }  
+    
+    @Override
+    public void move(int row, int column){
+        garden.setThing(this.row, this.column, null);
+        this.row = row;
+        this.column = column;
+        garden.setThing(row, column, this);
+    }
 }
     

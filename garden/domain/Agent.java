@@ -4,7 +4,6 @@ import java.awt.Color;
 
 
 public abstract class Agent{
-    
     public final static char UNKNOWN='u', ALIVE='a', DEAD='d';
     protected char state;
     private int time = 0;
@@ -17,7 +16,6 @@ public abstract class Agent{
         time=0;
     }
 
-
     /**The agent turns one life span old
      * 
      */
@@ -25,10 +23,9 @@ public abstract class Agent{
         time++;
     }
     
-    
     /** The agent moves
      */
-    public abstract void move();
+    public abstract void move(int row, int column);
     
     /** The agent change to the nextState
      */
@@ -40,6 +37,7 @@ public abstract class Agent{
     public final int getTime(){
         return time;
     }
+    
     public final void setTime(int time){
         time = time;
     }

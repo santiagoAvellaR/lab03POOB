@@ -18,8 +18,6 @@ public class Garden{
                 setThing(LENGTH-i,LENGTH-j,new Water());
             }
         }
-       
-        
         someThings();
     }
 
@@ -36,39 +34,25 @@ public class Garden{
     }
 
     public void someThings(){
-        setThing(10,10, new Flower(this, 10,10)); //rose
-        setThing(15,15, new Flower(this, 15,15)); //violet
-        setThing(16,16, new Carnivorous(this, 16,16)); //venus
-        setThing(5,5, new Carnivorous(this, 5,5)); //sundeuos
-        setThing(0,38, new Sand(this, 0, 38)); //tatacoa
-        setThing(0,39, new Sand(this, 0, 39)); //sahara 
+        Flower rose = new Flower(this, 10, 10);
+        Flower violet = new Flower(this, 15, 15);
+        Carnivorous venus = new Carnivorous(this, 16, 16);
+        Carnivorous sundeuos = new Carnivorous(this, 5, 5);
+        Sand tatacoa = new Sand(this, 0, 38);
+        Sand sahara = new Sand(this, 0, 39);
+        Drosera santiago = new Drosera(this, 20, 20);
+        Drosera daniel = new Drosera(this, 10, 15);
     }
     
     public void ticTac(){
-        
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];
-                if(thing != null && thing instanceof Flower && !(thing instanceof Carnivorous)){
-                    Flower flower = (Flower) thing;
-                    System.out.println("flor time" + flower.getTime() + "count " + count);
-
-                    flower.act();
-                }
-                else if(thing != null && thing instanceof Carnivorous){
-                    Carnivorous carnivorous = (Carnivorous) thing;
-                    System.out.println("time" + carnivorous.getTime() + "count " + count);
-                    if(carnivorous.getTime() == count){
-                        carnivorous.act();
-                    }
-                    else{
-                        carnivorous.setTime(count-1);
-                    }
-                    
+                if(thing != null){
+                    thing.act();
                 }
             }
         }
         count++;
     }
-
 }
