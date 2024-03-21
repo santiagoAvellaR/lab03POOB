@@ -39,7 +39,7 @@ public abstract class Agent{
     }
     
     public final void setTime(int time){
-        time = time;
+        this.time = time;
     }
     
     

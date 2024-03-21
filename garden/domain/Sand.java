@@ -12,7 +12,7 @@ public class Sand implements Thing
     private Color color;
     private Garden garden;
     private int row,column;
-    
+    private int time = 0;
    
     /**
      * Constructor for objects of class Sand
@@ -26,8 +26,16 @@ public class Sand implements Thing
         color=color.gray;
        
     }
-     public void act(){
+    public void act(){
+        time++;
+        if (time== 100)
+        {
+         garden.setThing(row,column,null);      
+        }
+        else{
          color = color.brighter();
+        }
+        
     }
     public final int shape(){
         return Thing.SQUARE;

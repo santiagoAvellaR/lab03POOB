@@ -8,6 +8,6 @@ comment2.params=targetRow\ targetColumn\ eat
 comment2.target=int[]\ findClosestFlowerAliveOrWater(int,\ int,\ boolean)
 comment3.params=
 comment3.target=void\ act()
-comment4.params=row\ column
+comment4.params=nRow\ nColumn
 comment4.target=void\ move(int,\ int)
 numComments=5

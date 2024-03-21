@@ -34,6 +34,7 @@ public class Drosera extends Flower
             for (int j = 0; j < 39; j++) {
                 if ((garden.getThing(i, j) instanceof Flower)&& eat && !(garden.getThing(i, j) instanceof Drosera)) {
                     Flower flower = (Flower) garden.getThing(i, j);
+                    
                     if (flower.isAlive()) {
                         int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
                         if (distance < minDistance) {
@@ -45,6 +46,7 @@ public class Drosera extends Flower
                 }
                 else if (garden.getThing(i, j) instanceof Water && !eat) {
                     Water water = (Water) garden.getThing(i, j);
+                    
                     int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
                     if (distance < minDistance) {
                         minDistance = distance;
@@ -54,16 +56,18 @@ public class Drosera extends Flower
                 }
             }
         }
+        System.out.println(closestPosition[0] + " y " + closestPosition[1]);
+        
         return closestPosition;
     }
     
     @Override
     public void act() {
         boolean eat = getTime()%2==0;
+        System.out.println(getTime());
         int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
         System.out.println(eat);
-        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithoutEating < 3) {
-            System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
+        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithoutEating < 2) {
             if(eat){
                 Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
                 flower.changeState('d');
@@ -73,7 +77,7 @@ public class Drosera extends Flower
         }
         else{
             daysWithoutEating++;
-            if(daysWithoutEating > 3){
+            if(daysWithoutEating > 2){
                 color = Color.black;
                 changeState('d');
             }
@@ -82,10 +86,10 @@ public class Drosera extends Flower
     }  
     
     @Override
-    public void move(int row, int column){
-        garden.setThing(this.row, this.column, null);
-        this.row = row;
-        this.column = column;
-        garden.setThing(row, column, this);
+    public void move(int nRow, int nColumn){
+        garden.setThing(row, column, null);
+        row = nRow;
+        column = nColumn;
+        garden.setThing(nRow, nColumn, this);
     }
 }

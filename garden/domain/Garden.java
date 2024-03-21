@@ -34,13 +34,13 @@ public class Garden{
 
     public void someThings(){
         Flower rose = new Flower(this, 10, 10);
-        Flower violet = new Flower(this, 15, 15);
-        Carnivorous venus = new Carnivorous(this, 16, 16);
-        Carnivorous sundeuos = new Carnivorous(this, 5, 5);
+        //Flower violet = new Flower(this, 15, 15);
+        //Carnivorous venus = new Carnivorous(this, 16, 16);
+        //Carnivorous sundeuos = new Carnivorous(this, 5, 5);
         Sand tatacoa = new Sand(this, 0, 38);
         Sand sahara = new Sand(this, 0, 39);
-        Drosera santiago = new Drosera(this, 2  , 20);
-        Drosera daniel = new Drosera(this, 10, 20);
+        //Drosera santiago = new Drosera(this, 2  , 20);
+        //Drosera daniel = new Drosera(this, 20, 20);
     }
     
     public void ticTac(){

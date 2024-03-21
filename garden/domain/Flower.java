@@ -63,15 +63,19 @@ public class Flower extends Agent implements Thing{
     }
 
     public void act(){
+        turn();
         System.out.println(getTime());
-        if(getTime()%3==0 && getTime()!=0){
+        if(getTime() == 3){
             changeState('d');
             color = Color.orange;
         }
-        else if(getTime()%5==0){
+        else if((getTime()-3)%8==0){
+            changeState('d');
+            color = Color.orange;
+        }
+        else if((getTime()%8==0)){
             changeState('a');
             color = Color.red;
         }
-        turn();
     }
 }

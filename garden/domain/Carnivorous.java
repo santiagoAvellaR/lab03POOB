@@ -27,7 +27,7 @@ public class Carnivorous extends Flower{
         int minDistance = Integer.MAX_VALUE;
         for (int i = 0; i < 39; i++) {
             for (int j = 0; j < 39; j++) {
-                if ( garden.getThing(i, j) instanceof Flower && !(garden.getThing(i, j) instanceof Carnivorous)) {
+                if ( (garden.getThing(i, j) instanceof Flower && !(garden.getThing(i, j) instanceof Drosera) && !(garden.getThing(i, j) instanceof Carnivorous ))) {
                     Flower flower = (Flower) garden.getThing(i, j);
                     if (flower.isAlive()) {
                         int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
