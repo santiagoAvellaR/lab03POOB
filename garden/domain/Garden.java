@@ -40,8 +40,8 @@ public class Garden{
         Carnivorous sundeuos = new Carnivorous(this, 5, 5);
         Sand tatacoa = new Sand(this, 0, 38);
         Sand sahara = new Sand(this, 0, 39);
-        Drosera santiago = new Drosera(this, 20, 20);
-        Drosera daniel = new Drosera(this, 10, 15);
+        Drosera santiago = new Drosera(this, 2  , 20);
+        Drosera daniel = new Drosera(this, 10, 20);
     }
     
     public void ticTac(){

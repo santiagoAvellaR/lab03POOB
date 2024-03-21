@@ -32,7 +32,7 @@ public class Drosera extends Flower
         int minDistance = Integer.MAX_VALUE;
         for (int i = 0; i < 39; i++) {
             for (int j = 0; j < 39; j++) {
-                if ((garden.getThing(i, j) instanceof Flower || garden.getThing(i, j) instanceof Carnivorous)&& eat) {
+                if ((garden.getThing(i, j) instanceof Flower)&& eat && !(garden.getThing(i, j) instanceof Drosera)) {
                     Flower flower = (Flower) garden.getThing(i, j);
                     if (flower.isAlive()) {
                         int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
@@ -61,7 +61,8 @@ public class Drosera extends Flower
     public void act() {
         boolean eat = getTime()%2==0;
         int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
-        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
+        System.out.println(eat);
+        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithouEating < 3) {
             System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
             if(eat){
                 Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
@@ -71,6 +72,7 @@ public class Drosera extends Flower
             move(closestFlowerPosition[0], closestFlowerPosition[1]);
         }
         else{
+            daysWithouEating++;
             if(daysWithouEating>3){
                 color = Color.black;
                 changeState('d');

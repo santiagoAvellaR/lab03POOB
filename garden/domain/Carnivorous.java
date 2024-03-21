@@ -17,6 +17,8 @@ public class Carnivorous extends Flower{
          super(garden, row, column);
          this.garden = garden;
          this.color = color.blue;
+         nextState = Agent.ALIVE;
+         changeState(nextState);
          
     }
     
@@ -43,6 +45,7 @@ public class Carnivorous extends Flower{
     
     @Override
     public void act() {
+        System.out.println(state);
         int[] closestFlowerPosition = findClosestFlowerAlive(row, column);
         if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
             System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
