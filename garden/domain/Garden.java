@@ -4,7 +4,6 @@ import java.util.*;
 public class Garden{
     static public int LENGTH=40;
     private Thing[][] garden;
-    private int count = 0;
     public Garden() {
         garden=new Thing[LENGTH][LENGTH];
         for (int r=0;r<LENGTH;r++){
@@ -53,6 +52,5 @@ public class Garden{
                 }
             }
         }
-        count++;
     }
 }

@@ -13,7 +13,7 @@ public class Drosera extends Flower
 {
     // instance variables - replace the example below with your own
     private Garden garden;
-    private int daysWithouEating = 0;
+    private int daysWithoutEating = 0;
 
     /**
      * Constructor for objects of class Drosera
@@ -62,18 +62,18 @@ public class Drosera extends Flower
         boolean eat = getTime()%2==0;
         int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
         System.out.println(eat);
-        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithouEating < 3) {
+        if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithoutEating < 3) {
             System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
             if(eat){
                 Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
                 flower.changeState('d');
-                daysWithouEating = 0;
+                daysWithoutEating = 0;
             }
             move(closestFlowerPosition[0], closestFlowerPosition[1]);
         }
         else{
-            daysWithouEating++;
-            if(daysWithouEating>3){
+            daysWithoutEating++;
+            if(daysWithoutEating > 3){
                 color = Color.black;
                 changeState('d');
             }
