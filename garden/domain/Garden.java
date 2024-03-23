@@ -4,6 +4,7 @@ import java.util.*;
 public class Garden{
     static public int LENGTH=40;
     private Thing[][] garden;
+    public static int time = 0;
     public Garden() {
         garden=new Thing[LENGTH][LENGTH];
         for (int r=0;r<LENGTH;r++){
@@ -41,9 +42,11 @@ public class Garden{
         Sand sahara = new Sand(this, 0, 39);
         //Drosera santiago = new Drosera(this, 2  , 20);
         //Drosera daniel = new Drosera(this, 20, 20);
+        Gardener nicolas = new Gardener(this, 25, 25);
     }
     
     public void ticTac(){
+        time++;
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];

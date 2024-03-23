@@ -99,12 +99,25 @@ class PhotoGarden extends JPanel{
                             g.setColor(Color.YELLOW);
                             g.fillOval(gui.SIDE*c+gui.SIDE/3,gui.SIDE*f+gui.SIDE/3,gui.SIDE/3,gui.SIDE/3);
                         }
-                    }else if (garden.getThing(f,c).shape()==Thing.SQUARE){  
+                    }
+                    else if (garden.getThing(f,c).shape()==Thing.SQUARE){  
                         g.drawRoundRect(gui.SIDE*c+1,gui.SIDE*f+1,gui.SIDE-2,gui.SIDE-2,2,2); 
                         if (garden.getThing(f,c).is()){
                             g.fillRoundRect(gui.SIDE*c+1,gui.SIDE*f+1,gui.SIDE-2,gui.SIDE-2,2,2);
                         }
-                    }else{
+                    }
+                    else if (garden.getThing(f,c).shape()==Thing.HAT){
+                        g.setColor(garden.getThing(f,c).getColor());
+                        g.fillRect(gui.SIDE*c+1, gui.SIDE*f+1, gui.SIDE-2, gui.SIDE-2); // Cuerpo del sombrero
+                        g.setColor(Color.BLACK);
+                        g.fillRect(gui.SIDE*c+1, gui.SIDE*f+1, gui.SIDE-2, gui.SIDE/4); // Ala del sombrero
+                        g.setColor(new Color(156, 102, 31)); // Color marrón claro
+                        g.fillRect(gui.SIDE*c+gui.SIDE/4, gui.SIDE*f+gui.SIDE/4, gui.SIDE/2, gui.SIDE/2); // Corona del sombrero
+                        g.setColor(Color.BLACK);
+                        g.drawRect(gui.SIDE*c+gui.SIDE/4, gui.SIDE*f+gui.SIDE/4, gui.SIDE/2, gui.SIDE/2); // Borde de la corona del sombrero
+                        g.drawLine(gui.SIDE*c+gui.SIDE/4, gui.SIDE*f+gui.SIDE/4, gui.SIDE*c+gui.SIDE/2, gui.SIDE*f+gui.SIDE/6); // Línea del sombrero
+                    }
+                    else{
                         g.drawOval(gui.SIDE*c+1,gui.SIDE*f+1,gui.SIDE-2,gui.SIDE-2);
                         if (garden.getThing(f,c).is()){
                             g.fillOval(gui.SIDE*c+1,gui.SIDE*f+1,gui.SIDE-2,gui.SIDE-2);

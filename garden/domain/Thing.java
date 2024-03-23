@@ -6,7 +6,7 @@ public interface Thing{
   public static final int ROUND = 1;
   public static final int SQUARE = 2;
   public static final int FLOWER = 3;
-
+  public static final int HAT = 4;
    
   public void act();
   
@@ -16,8 +16,7 @@ public interface Thing{
   
   default public Color getColor(){
       return Color.blue;
-  };
-  
+  }
   
   default public boolean is(){
       return true;
