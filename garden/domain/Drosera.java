@@ -33,8 +33,8 @@ public class Drosera extends Flower
     private int[] findClosestFlowerAliveOrWater(int targetRow, int targetColumn, boolean eat) {
         int[] closestPosition = new int[]{-1, -1};
         int minDistance = Integer.MAX_VALUE;
-        for (int i = 0; i < 39; i++) {
-            for (int j = 0; j < 39; j++) {
+        for (int i = 0; i < garden.LENGTH; i++) {
+            for (int j = 0; j < garden.LENGTH; j++) {
                 if ((garden.getThing(i, j) instanceof Flower)&& eat && !(garden.getThing(i, j) instanceof Drosera)) {
                     Flower flower = (Flower) garden.getThing(i, j);
                     if (flower.isAlive()) {

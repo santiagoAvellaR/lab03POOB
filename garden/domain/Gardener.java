@@ -60,13 +60,67 @@ public class Gardener extends Agent implements Thing{
     }
 
     public void move(int row, int column){
+        garden.setThing(row, column, null);
+        this.row = row;
+        this.column = column;
+        garden.setThing(row, column, this);
     }
     
     private int selectTheAgentWithMinimunNumber(){
         return Math.min(Math.min(garden.numberOfFlowers, garden.numberOfCarnivorous), Math.min(garden.numberSandBlocks, garden.numberWaterBlocks));
     }
     
+    private int[] searchTheClosestTwoAdyacentEmptySpaces(int targetRow, int targetColumn){
+        int[] closestPosition = new int[]{-1, -1, -1, -1};
+        int minDistance = Integer.MAX_VALUE;
+        for (int i = 0; i < garden.LENGTH; i++) {
+            for (int j = 0; j < garden.LENGTH; j++) {
+                if ( (garden.getThing(i, j) == null )) {
+                    int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        for(int k = i-1;k  < i+2; k++){
+                            for(int l = j-1;l  < j+2; l++){
+                                if( k >= 0 && k < garden.LENGTH && l >=0 && l < garden.LENGTH &&  k != i && l!= j){
+                                    if (garden.getThing(k, l) == null ){
+                                        closestPosition[0] = i; 
+                                        closestPosition[1] = j;
+                                        closestPosition[2] = k;
+                                        closestPosition[3] = l;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return closestPosition;
+    }
+    
     public void act(){
+        if (selectTheAgentWithMinimunNumber() > 8){
+            // revive a la drosera
+        }
+        else{
+            int[] twoEmptySpaces = searchTheClosestTwoAdyacentEmptySpaces(row, column);
+            if(twoEmptySpaces[0]!=-1 && twoEmptySpaces[1]!=-1 && twoEmptySpaces[2]!=-1 && twoEmptySpaces[3]!=-1){
+                if(selectTheAgentWithMinimunNumber() == garden.numberOfFlowers){
+                    new Flower(garden, twoEmptySpaces[2], twoEmptySpaces[3]);
+                }
+                else if(selectTheAgentWithMinimunNumber() == garden.numberOfCarnivorous){
+                    new Carnivorous(garden, twoEmptySpaces[2], twoEmptySpaces[3]);
+                }
+                else if(selectTheAgentWithMinimunNumber() == garden.numberSandBlocks){
+                    new Sand(garden, twoEmptySpaces[2], twoEmptySpaces[3]);
+                }
+                else{
+                    new Water(garden, twoEmptySpaces[2], twoEmptySpaces[3]);
+                }
+                move(twoEmptySpaces[0], twoEmptySpaces[1]);
+            }
+        }
         turn();
     }
 }
