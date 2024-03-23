@@ -13,7 +13,7 @@ public class Drosera extends Flower
 {
     // instance variables - replace the example below with your own
     private Garden garden;
-    private int daysWithoutEating = 0;
+    private int daysWithoutEating;
 
     /**
      * Constructor for objects of class Drosera
@@ -28,6 +28,7 @@ public class Drosera extends Flower
         changeState(nextState);
         garden.numberOfDroseras++;
         setTime(garden.time);
+        daysWithoutEating = 0;
     }
     
     private int[] findClosestFlowerAliveOrWater(int targetRow, int targetColumn, boolean eat) {
@@ -98,5 +99,11 @@ public class Drosera extends Flower
         row = nRow;
         column = nColumn;
         garden.setThing(nRow, nColumn, this);
+    }
+    
+    public void revive(){
+        changeState('a');
+        daysWithoutEating = 0;
+        color = Color.green;
     }
 }
