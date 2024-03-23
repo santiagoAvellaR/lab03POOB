@@ -61,6 +61,10 @@ public class Gardener extends Agent implements Thing{
     public void move(int row, int column){
     }
     
+    private int selectTheAgentWithMinimunNumber(){
+        return Math.min(Math.min(garden.numberOfFlowers, garden.numberOfCarnivorous), Math.min(garden.numberSandBlocks, garden.numberWaterBlocks));
+    }
+    
     public void act(){
         turn();
     }

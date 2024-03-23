@@ -62,6 +62,7 @@ public class Drosera extends Flower
     @Override
     public void act() {
         System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Drosera: " + getTime());
+        System.out.println("esta viva? " + isAlive());
         if (getTime()==garden.time){
             boolean eat = getTime()%2==0;
             int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
