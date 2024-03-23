@@ -24,6 +24,7 @@ public class Gardener extends Agent implements Thing{
         this.column=column;
         garden.setThing(row,column,(Thing)this);
         color = color.white;
+        garden.numberOfGardeners++;
     }
     
     /**Returns the shape

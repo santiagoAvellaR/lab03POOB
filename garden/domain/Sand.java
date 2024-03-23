@@ -13,19 +13,18 @@ public class Sand implements Thing
     private Garden garden;
     private int row,column;
     private int time = 0;
-   
     /**
      * Constructor for objects of class Sand
      */
-    public Sand(Garden garden,int row, int column)
-    {   
+    public Sand(Garden garden,int row, int column){   
         this.garden=garden;
         this.row=row;
         this.column=column;
         garden.setThing(row,column,(Thing)this);  
         color=color.gray;
-       
+        garden.numberSandBlocks++;
     }
+    
     public void act(){
         time++;
         if (time== 100)

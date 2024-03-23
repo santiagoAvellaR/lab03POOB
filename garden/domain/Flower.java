@@ -25,6 +25,7 @@ public class Flower extends Agent implements Thing{
         garden.setThing(row,column,(Thing)this);  
         color=Color.red;
         changeState(nextState);
+        garden.numberOfFlowers++;
     }
 
     /**Returns the shape

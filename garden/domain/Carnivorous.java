@@ -15,11 +15,12 @@ public class Carnivorous extends Flower{
     
     public Carnivorous(Garden garden, int row, int column){
          super(garden, row, column);
+         garden.numberOfFlowers--;
          this.garden = garden;
          this.color = color.blue;
          nextState = Agent.ALIVE;
          changeState(nextState);
-         
+         garden.numberOfCarnivorous++;
     }
     
     private int[] findClosestFlowerAlive(int targetRow, int targetColumn) {
@@ -52,6 +53,7 @@ public class Carnivorous extends Flower{
                 Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
                 flower.changeState('d');
                 move(closestFlowerPosition[0], closestFlowerPosition[1]);
+                garden.numberOfFlowers--;
             }
             turn();
         }

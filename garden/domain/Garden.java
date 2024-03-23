@@ -5,6 +5,12 @@ public class Garden{
     static public int LENGTH=40;
     private Thing[][] garden;
     public static int time = 0;
+    public static int numberOfFlowers = 0;
+    public static int numberOfCarnivorous = 0;
+    public static int numberOfDroseras = 0;
+    public static int numberWaterBlocks = 0;
+    public static int numberSandBlocks = 0;
+    public static int numberOfGardeners = 0;
     public Garden() {
         garden=new Thing[LENGTH][LENGTH];
         for (int r=0;r<LENGTH;r++){
@@ -12,10 +18,10 @@ public class Garden{
                 garden[r][c]=null;
             }
         }
-        setThing(0,0,new Water());
+        new Water(this, 0, 0);
         for (int i=1;i<5;i++){
             for (int j=1;j<5;j++){
-                setThing(LENGTH-i,LENGTH-j,new Water());
+                new Water(this,LENGTH-i,LENGTH-j);
             }
         }
         someThings();

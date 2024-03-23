@@ -21,10 +21,12 @@ public class Drosera extends Flower
     public Drosera(Garden garden, int row, int column){
         // initialise instance variables
         super(garden, row, column);
+        garden.numberOfFlowers--;
         this.garden = garden;
         this.color = color.green;
         nextState=Agent.ALIVE;
         changeState(nextState);
+        garden.numberOfDroseras++;
     }
     
     private int[] findClosestFlowerAliveOrWater(int targetRow, int targetColumn, boolean eat) {
@@ -65,12 +67,15 @@ public class Drosera extends Flower
             int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
             if ((closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) && isAlive()) {
                 if(eat){
+                    if(garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]) instanceof Carnivorous){garden.numberOfCarnivorous--;}
+                    else if(garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]) instanceof Flower){garden.numberOfFlowers--;}
                     Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
                     flower.changeState('d');
                     daysWithoutEating = 0;
                 }
                 else{
                     daysWithoutEating++;
+                    garden.numberWaterBlocks--;
                 }
                 move(closestFlowerPosition[0], closestFlowerPosition[1]);
             }
