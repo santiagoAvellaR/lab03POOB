@@ -37,9 +37,11 @@ public class Sand implements Thing
         }
         
     }
+    
     public final int shape(){
         return Thing.SQUARE;
     }
+    
     public final Color getColor(){
         return color;
     }

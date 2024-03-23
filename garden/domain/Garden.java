@@ -4,14 +4,21 @@ import java.util.*;
 public class Garden{
     static public int LENGTH=40;
     private Thing[][] garden;
-    public static int time = 0;
-    public static int numberOfFlowers = 0;
-    public static int numberOfCarnivorous = 0;
-    public static int numberOfDroseras = 0;
-    public static int numberWaterBlocks = 0;
-    public static int numberSandBlocks = 0;
-    public static int numberOfGardeners = 0;
+    public static int time;
+    public static int numberOfFlowers;
+    public static int numberOfCarnivorous;
+    public static int numberOfDroseras;
+    public static int numberWaterBlocks;
+    public static int numberSandBlocks;
+    public static int numberOfGardeners;
     public Garden() {
+        time = 0;
+        numberOfFlowers = 0;
+        numberOfCarnivorous = 0;
+        numberOfDroseras = 0;
+        numberWaterBlocks = 0;
+        numberSandBlocks = 0;
+        numberOfGardeners = 0;
         garden=new Thing[LENGTH][LENGTH];
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
