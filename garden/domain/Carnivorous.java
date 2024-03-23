@@ -45,11 +45,11 @@ public class Carnivorous extends Flower{
     
     @Override
     public void act() {
+        //System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Carnivora: " + getTime());
         if (getTime()==garden.time){
             turn();
             int[] closestFlowerPosition = findClosestFlowerAlive(row, column);
             if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
-                System.out.println("x: " + closestFlowerPosition[0] + "y :" +closestFlowerPosition[1]);
                 Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
                 flower.changeState('d');
                 move(closestFlowerPosition[0], closestFlowerPosition[1]);

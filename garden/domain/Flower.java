@@ -65,7 +65,6 @@ public class Flower extends Agent implements Thing{
 
     public void act(){
         turn();
-        System.out.println(getTime());
         if(getTime() == 3){
             changeState('d');
             color = Color.orange;

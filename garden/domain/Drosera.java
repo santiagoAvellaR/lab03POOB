@@ -54,17 +54,16 @@ public class Drosera extends Flower
                 }
             }
         }
-        System.out.println(closestPosition[0] + " y " + closestPosition[1]);
         return closestPosition;
     }
     
     @Override
     public void act() {
+        System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Drosera: " + getTime());
         if (getTime()==garden.time){
+            turn();
             boolean eat = getTime()%2==0;
-            System.out.println(getTime());
             int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
-            System.out.println(eat);
             if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithoutEating < 2) {
                 if(eat){
                     Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
@@ -80,7 +79,6 @@ public class Drosera extends Flower
                     changeState('d');
                 }
             }
-            turn();
         }
     }  
     
