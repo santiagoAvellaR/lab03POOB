@@ -61,24 +61,27 @@ public class Drosera extends Flower
     public void act() {
         System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Drosera: " + getTime());
         if (getTime()==garden.time){
-            turn();
             boolean eat = getTime()%2==0;
             int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
-            if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1 && daysWithoutEating < 2) {
+            if ((closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) && isAlive()) {
                 if(eat){
                     Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
                     flower.changeState('d');
                     daysWithoutEating = 0;
                 }
+                else{
+                    daysWithoutEating++;
+                }
                 move(closestFlowerPosition[0], closestFlowerPosition[1]);
             }
             else{
-                daysWithoutEating++;
-                if(daysWithoutEating > 2){
+                if(daysWithoutEating >= 3){
                     color = Color.black;
                     changeState('d');
                 }
+                daysWithoutEating++;
             }
+            turn();
         }
     }  
     
