@@ -50,7 +50,6 @@ public class TestGarden
         for(int i = 0; i < 3; i++){
             garden.ticTac();
         }
-        System.out.println(drosera.getTime());
         assertFalse(drosera.isAlive());
     }
     
@@ -101,8 +100,7 @@ public class TestGarden
     @Test
     public void sandShouldDisappear(){
         Sand sand = new Sand(garden, 0, 20);
-        for(int i = 0; i < 100; i++)
-        {
+        for(int i = 0; i < 100; i++){
             garden.ticTac();
         }
         assertNull(garden.getThing(0,20));

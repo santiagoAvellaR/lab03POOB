@@ -24,7 +24,7 @@ public class Garden{
                 new Water(this,LENGTH-i,LENGTH-j);
             }
         }
-        someThings();
+        //someThings();
     }
 
     public int  getLength(){
@@ -53,6 +53,7 @@ public class Garden{
     }
     
     public void ticTac(){
+        System.out.println("click");
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];

@@ -21,6 +21,7 @@ public class Carnivorous extends Flower{
          nextState = Agent.ALIVE;
          changeState(nextState);
          garden.numberOfCarnivorous++;
+         setTime(garden.time);
     }
     
     private int[] findClosestFlowerAlive(int targetRow, int targetColumn) {

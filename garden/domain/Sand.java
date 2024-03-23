@@ -12,7 +12,7 @@ public class Sand implements Thing
     private Color color;
     private Garden garden;
     private int row,column;
-    private int time = 0;
+    private int time;
     /**
      * Constructor for objects of class Sand
      */
@@ -23,6 +23,7 @@ public class Sand implements Thing
         garden.setThing(row,column,(Thing)this);  
         color=color.gray;
         garden.numberSandBlocks++;
+        time = garden.time;
     }
     
     public void act(){

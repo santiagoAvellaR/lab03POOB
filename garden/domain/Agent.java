@@ -1,9 +1,8 @@
 package domain;
-
 import java.awt.Color;
 
-
-public abstract class Agent{
+public abstract class Agent
+{
     public final static char UNKNOWN='u', ALIVE='a', DEAD='d';
     protected char state;
     private int time = 0;

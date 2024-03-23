@@ -27,6 +27,7 @@ public class Drosera extends Flower
         nextState=Agent.ALIVE;
         changeState(nextState);
         garden.numberOfDroseras++;
+        setTime(garden.time);
     }
     
     private int[] findClosestFlowerAliveOrWater(int targetRow, int targetColumn, boolean eat) {
@@ -62,7 +63,7 @@ public class Drosera extends Flower
     @Override
     public void act() {
         System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Drosera: " + getTime());
-        System.out.println("esta viva? " + isAlive());
+        System.out.println("esta viva? " + isAlive() + " y " + this.isAlive());
         if (getTime()==garden.time){
             boolean eat = getTime()%2==0;
             int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
