@@ -34,7 +34,6 @@ public class Drosera extends Flower
             for (int j = 0; j < 39; j++) {
                 if ((garden.getThing(i, j) instanceof Flower)&& eat && !(garden.getThing(i, j) instanceof Drosera)) {
                     Flower flower = (Flower) garden.getThing(i, j);
-                    
                     if (flower.isAlive()) {
                         int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
                         if (distance < minDistance) {
@@ -46,7 +45,6 @@ public class Drosera extends Flower
                 }
                 else if (garden.getThing(i, j) instanceof Water && !eat) {
                     Water water = (Water) garden.getThing(i, j);
-                    
                     int distance = Math.abs(targetRow - i) + Math.abs(targetColumn - j);
                     if (distance < minDistance) {
                         minDistance = distance;
@@ -57,7 +55,6 @@ public class Drosera extends Flower
             }
         }
         System.out.println(closestPosition[0] + " y " + closestPosition[1]);
-        
         return closestPosition;
     }
     

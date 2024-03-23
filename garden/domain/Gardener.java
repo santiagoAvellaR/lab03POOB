@@ -23,7 +23,7 @@ public class Gardener extends Agent implements Thing{
         this.row=row;
         this.column=column;
         garden.setThing(row,column,(Thing)this);
-        color = Color.white;
+        color = color.white;
     }
     
     /**Returns the shape
@@ -62,18 +62,5 @@ public class Gardener extends Agent implements Thing{
     
     public void act(){
         turn();
-        System.out.println(getTime());
-        if(getTime() == 3){
-            changeState('d');
-            color = Color.orange;
-        }
-        else if((getTime()-3)%8==0){
-            changeState('d');
-            color = Color.orange;
-        }
-        else if((getTime()%8==0)){
-            changeState('a');
-            color = Color.red;
-        }
     }
 }

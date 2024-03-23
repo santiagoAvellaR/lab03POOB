@@ -34,19 +34,18 @@ public class Garden{
     }
 
     public void someThings(){
-        Flower rose = new Flower(this, 10, 10);
+        //Flower rose = new Flower(this, 10, 10);
         //Flower violet = new Flower(this, 15, 15);
         //Carnivorous venus = new Carnivorous(this, 16, 16);
         //Carnivorous sundeuos = new Carnivorous(this, 5, 5);
         Sand tatacoa = new Sand(this, 0, 38);
         Sand sahara = new Sand(this, 0, 39);
-        //Drosera santiago = new Drosera(this, 2  , 20);
+        Drosera santiago = new Drosera(this, 2  , 20);
         //Drosera daniel = new Drosera(this, 20, 20);
         Gardener nicolas = new Gardener(this, 25, 25);
     }
     
     public void ticTac(){
-        time++;
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];
@@ -55,5 +54,6 @@ public class Garden{
                 }
             }
         }
+        time++;
     }
 }
