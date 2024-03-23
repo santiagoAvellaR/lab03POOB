@@ -75,11 +75,11 @@ public class Drosera extends Flower
                 move(closestFlowerPosition[0], closestFlowerPosition[1]);
             }
             else{
+                daysWithoutEating++;
                 if(daysWithoutEating >= 3){
                     color = Color.black;
                     changeState('d');
                 }
-                daysWithoutEating++;
             }
             turn();
         }
