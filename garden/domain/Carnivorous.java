@@ -48,7 +48,6 @@ public class Carnivorous extends Flower{
     
     @Override
     public void act() {
-  
         if (getTime()==garden.time){
             int[] closestFlowerPosition = findClosestFlowerAlive(row, column);
             if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
