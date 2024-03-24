@@ -2,10 +2,7 @@ package domain;
 import java.awt.Color;
 
 /**
- * Write a description of class Sand here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Class representing sand in the garden.
  */
 public class Sand implements Thing
 {
@@ -14,7 +11,11 @@ public class Sand implements Thing
     private int row,column;
     private int time;
     /**
-     * Constructor for objects of class Sand
+     * Constructor for objects of class Sand.
+     *
+     * @param garden The garden where the sand is located.
+     * @param row The row position of the sand.
+     * @param column The column position of the sand.
      */
     public Sand(Garden garden,int row, int column){   
         this.garden=garden;
@@ -26,6 +27,10 @@ public class Sand implements Thing
         time = garden.time;
     }
     
+    /**
+     * Performs an action for the sand.
+     * The sand will lighten its color over time until it disappears.
+     */
     public void act(){
         time++;
         if (time== 100)
@@ -35,17 +40,23 @@ public class Sand implements Thing
         else{
          color = color.brighter();
         }
-        
     }
     
+    /**
+     * Returns the shape of the sand.
+     *
+     * @return The shape of the sand.
+     */
     public final int shape(){
         return Thing.SQUARE;
     }
     
+    /**
+     * Returns the color of the sand.
+     *
+     * @return The color of the sand.
+     */
     public final Color getColor(){
         return color;
     }
-
-
-    
 }

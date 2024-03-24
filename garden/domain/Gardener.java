@@ -3,18 +3,21 @@ import java.awt.Color;
 
 
 /**
- * Write a description of class Gardener here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Class representing a gardener in the garden.
+ * Extends Agent and implements Thing interface.
  */
 public class Gardener extends Agent implements Thing{
     // instance variables - replace the example below with your own
     protected Color color;
     private Garden garden;
     protected int row,column;
+    
     /**
-     * Constructor for objects of class Gardener
+     * Constructor for objects of class Gardener.
+     *
+     * @param garden The garden where the gardener is located.
+     * @param row The row position of the gardener.
+     * @param column The column position of the gardener.
      */
     public Gardener(Garden garden,int row, int column){
         // initialise instance variables
@@ -34,30 +37,47 @@ public class Gardener extends Agent implements Thing{
         return Thing.HAT;
     }
     
+    /**
+     * Dummy method for changing the state of the gardener.
+     *
+     * @param nextState The next state to change to.
+     */
     public void changeState(char nextState){
     }
     
-    /**Returns the row
-    @return 
+    /**
+     * Returns the row position of the gardener.
+     *
+     * @return The row position of the gardener.
      */
     public final int getRow(){
         return row;
     }
     
-    /**Returns tha column
-    @return 
+    /**
+     * Returns the column position of the gardener.
+     *
+     * @return The column position of the gardener.
      */
     public final int getColumn(){
         return column;
     }
     
-    /**Returns the color
-    @return 
+    /**
+     * Returns the color of the gardener.
+     *
+     * @return The color of the gardener.
      */
     public final Color getColor(){
         return color;
     }
-
+    
+    /**
+     * Moves the gardener to the specified position.
+     *
+     * @param row The new row position.
+     * @param column The new column position.
+     */
     public void move(int row, int column){
         garden.setThing(this.row, this.column, null);
         this.row = row;
@@ -65,10 +85,22 @@ public class Gardener extends Agent implements Thing{
         garden.setThing(row, column, this);
     }
     
+    /**
+     * Selects the agent with the minimum number from flowers, carnivorous, sand blocks, and water blocks.
+     *
+     * @return The minimum number among flowers, carnivorous, sand blocks, and water blocks.
+     */
     private int selectTheAgentWithMinimunNumber(){
         return Math.min(Math.min(garden.numberOfFlowers, garden.numberOfCarnivorous), Math.min(garden.numberSandBlocks, garden.numberWaterBlocks));
     }
     
+    /**
+     * Searches for the closest two adjacent empty spaces around the gardener's position.
+     *
+     * @param targetRow The row position of the gardener.
+     * @param targetColumn The column position of the gardener.
+     * @return An array containing the row and column positions of the closest two adjacent empty spaces.
+     */
     private int[] searchTheClosestTwoAdyacentEmptySpaces(int targetRow, int targetColumn){
         int[] closestPosition = new int[]{-1, -1, -1, -1};
         int minDistance = Integer.MAX_VALUE;
@@ -98,6 +130,13 @@ public class Gardener extends Agent implements Thing{
         return closestPosition;
     }
     
+    /**
+     * Finds the closest dead Drosera plant to the gardener's position.
+     *
+     * @param targetRow The row position of the gardener.
+     * @param targetColumn The column position of the gardener.
+     * @return An array containing the row and column positions of the closest dead Drosera plant.
+     */
     private int[] findClosestDroseraDead(int targetRow, int targetColumn) {
         int[] closestPosition = new int[]{-1, -1};
         int minDistance = Integer.MAX_VALUE;
@@ -119,6 +158,10 @@ public class Gardener extends Agent implements Thing{
         return closestPosition;
     }
     
+    /**
+     * Performs an action for the gardener.
+     * Revives the closest dead Drosera plant or creates new agents based on the minimum number of agents present.
+     */
     public void act(){
         if(getTime() == garden.time){
             if (selectTheAgentWithMinimunNumber() > 8){

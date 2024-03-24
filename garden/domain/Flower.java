@@ -1,9 +1,9 @@
 package domain;
 import java.awt.Color;
 
-/**Information about a Flower<br>
-<b>(garden,row,column,time,state,nextState, color)</b><br>
-<br>
+/**
+ * Class representing a flower in the garden.
+ * Extends Agent and implements Thing.
  */
 public class Flower extends Agent implements Thing{
     protected char nextState;
@@ -11,11 +11,13 @@ public class Flower extends Agent implements Thing{
     private Garden garden;
     protected int row,column;
 
-    /**Create a new flower (<b>row,column</b>) in the garden <b>garden</b>.
-     * Every new flower is going to be alive in the following state.
-     * @param garden 
-     * @param row 
-     * @param column 
+    /**
+     * Creates a new flower at the specified position in the garden.
+     * The flower is initially set to be alive in the following state.
+     *
+     * @param garden The garden where the flower is located.
+     * @param row The row position of the flower.
+     * @param column The column position of the flower.
      */
     public Flower(Garden garden,int row, int column){
         this.garden=garden;
@@ -56,15 +58,30 @@ public class Flower extends Agent implements Thing{
     public final Color getColor(){
         return color;
     }
-
+    
+    /**
+     * Moves the flower to a new position (not implemented for flowers).
+     *
+     * @param row The new row position.
+     * @param column The new column position.
+     */
     public void move(int row, int column){
     }
     
+    /**
+     * Changes the state of the flower.
+     *
+     * @param nextState The next state to transition to.
+     */
     public void changeState(char nextState){
         state = nextState;
         this.nextState = nextState;
     }
-
+    
+    /**
+     * Performs an action for the flower.
+     * Flowers change color and state based on the elapsed time.
+     */
     public void act(){
         turn();
         if(getTime() == 3){
@@ -79,6 +96,5 @@ public class Flower extends Agent implements Thing{
             changeState('a');
             color = Color.red;
         }
-        
     }
 }

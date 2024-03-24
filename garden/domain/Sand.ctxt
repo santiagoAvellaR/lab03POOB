@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=Sand
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Sand\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ representing\ sand\ in\ the\ garden.\r\n
 comment1.params=garden\ row\ column
 comment1.target=Sand(Garden,\ int,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Sand\r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Sand.\r\n\r\n\ @param\ garden\ The\ garden\ where\ the\ sand\ is\ located.\r\n\ @param\ row\ The\ row\ position\ of\ the\ sand.\r\n\ @param\ column\ The\ column\ position\ of\ the\ sand.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Performs\ an\ action\ for\ the\ sand.\r\n\ The\ sand\ will\ lighten\ its\ color\ over\ time\ until\ it\ disappears.\r\n
 comment3.params=
 comment3.target=int\ shape()
+comment3.text=\r\n\ Returns\ the\ shape\ of\ the\ sand.\r\n\r\n\ @return\ The\ shape\ of\ the\ sand.\r\n
 comment4.params=
 comment4.target=java.awt.Color\ getColor()
+comment4.text=\r\n\ Returns\ the\ color\ of\ the\ sand.\r\n\r\n\ @return\ The\ color\ of\ the\ sand.\r\n
 numComments=5

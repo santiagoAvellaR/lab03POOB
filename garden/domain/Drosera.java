@@ -4,19 +4,21 @@ import java.util.Arrays;
 import java.awt.Color;
 
 /**
- * Write a description of class Drosera here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class representing a Drosera plant in the garden.
+ * Extends Flower.
  */
 public class Drosera extends Flower
 {
     // instance variables - replace the example below with your own
     private Garden garden;
     private int daysWithoutEating;
-
+    
     /**
-     * Constructor for objects of class Drosera
+     * Constructor for objects of class Drosera.
+     *
+     * @param garden The garden where the Drosera plant is located.
+     * @param row The row position of the Drosera plant.
+     * @param column The column position of the Drosera plant.
      */
     public Drosera(Garden garden, int row, int column){
         // initialise instance variables
@@ -31,6 +33,14 @@ public class Drosera extends Flower
         daysWithoutEating = 0;
     }
     
+    /**
+     * Finds the closest alive flower or water to the given position.
+     *
+     * @param targetRow The row position to search around.
+     * @param targetColumn The column position to search around.
+     * @param eat Indicates if the Drosera plant is looking for food (true) or water (false).
+     * @return An array containing the row and column positions of the closest alive flower or water.
+     */
     private int[] findClosestFlowerAliveOrWater(int targetRow, int targetColumn, boolean eat) {
         int[] closestPosition = new int[]{-1, -1};
         int minDistance = Integer.MAX_VALUE;
@@ -61,10 +71,12 @@ public class Drosera extends Flower
         return closestPosition;
     }
     
+    /**
+     * Performs an action for the Drosera plant.
+     * The Drosera plant eats flowers or drinks water based on the elapsed time.
+     */
     @Override
     public void act() {
-        System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Drosera: " + getTime());
-        System.out.println("esta viva? " + isAlive() + " y " + this.isAlive());
         if (getTime()==garden.time){
             boolean eat = getTime()%2==0;
             int[] closestFlowerPosition = findClosestFlowerAliveOrWater(row, column, eat);
@@ -97,6 +109,12 @@ public class Drosera extends Flower
         }
     }  
     
+    /**
+     * Moves the Drosera plant to the specified position.
+     *
+     * @param nRow The new row position.
+     * @param nColumn The new column position.
+     */
     @Override
     public void move(int nRow, int nColumn){
         garden.setThing(row, column, null);
@@ -105,6 +123,9 @@ public class Drosera extends Flower
         garden.setThing(nRow, nColumn, this);
     }
     
+    /**
+     * Revives the Drosera plant, setting it back to alive state.
+     */
     public void revive(){
         changeState('a');
         daysWithoutEating = 0;

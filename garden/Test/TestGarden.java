@@ -56,7 +56,6 @@ public class TestGarden
         }
         assertFalse(drosera.isAlive());
     }
-    
     @Test
     public void droseraShouldEatOnce(){
         Drosera Santiago = new Drosera(garden, 16, 20);
@@ -75,7 +74,6 @@ public class TestGarden
         }
         assertFalse(Santiago.isAlive());
     }
-    
     @Test
     public void droseraMainTest(){
         //Se crea una inquieta
@@ -102,10 +100,8 @@ public class TestGarden
         //Tristemente por no poder alimentarse correctamente perece al tercer dia de su ultima comida
         assertFalse(drosera.isAlive());
     }
-    
     @Test
     public void droseraShouldEatAndDrink(){
-        
     }
     
     
@@ -144,7 +140,6 @@ public class TestGarden
     }
     @Test
     public void gardenerShouldCreateSand(){
-         
          Gardener gardener =  new Gardener(garden, 4, 5);
          Carnivorous carnivorous = new Carnivorous(garden, 9, 5);
          Flower flower = new Flower(garden, 1, 2); 
@@ -178,22 +173,18 @@ public class TestGarden
 
             }
         }
-        System.out.println(garden.numberSandBlocks);
         for (int i=21;i<=25;i++){
             for (int j=21;j<=22;j++){
                 new Flower(garden,i, j);
 
             }
         }
-        System.out.println(garden.numberOfFlowers);
         for (int i=21;i<=25;i++){
             for (int j=24;j<=26;j++){
                 new Carnivorous(garden,i, j);
 
             }
         }
-        System.out.println(garden.numberOfCarnivorous);
-        System.out.println(garden.numberWaterBlocks);
         //Se crean los anteriores Agent para que el minimo numero de agente sea mayor de 8 y asi 
         //el gardener reviva a la Drosera
         Gardener gardener =  new Gardener(garden, 1, 5);
@@ -202,6 +193,8 @@ public class TestGarden
         assertTrue(drosera.isAlive());
         
     }
+    
+    
     /**
      * PRUEBAS DE FlOWER
      */
@@ -218,6 +211,8 @@ public class TestGarden
         }
         assertTrue(flower.isAlive()); //Revive despues de los 5 tictacs luego de morir     
     }
+    
+    
     /**
      * PRUEBAS DE CARNIVOROUS
      */

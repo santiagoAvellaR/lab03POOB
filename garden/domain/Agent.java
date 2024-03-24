@@ -1,6 +1,9 @@
 package domain;
 import java.awt.Color;
 
+/**
+ * Abstract class representing an agent.
+ */
 public abstract class Agent
 {
     public final static char UNKNOWN='u', ALIVE='a', DEAD='d';
@@ -37,10 +40,14 @@ public abstract class Agent
         return time;
     }
     
+    /**
+     * Sets the time elapsed for the agent.
+     *
+     * @param time The time elapsed to set.
+     */
     public final void setTime(int time){
         this.time = time;
     }
-    
     
     /**Returns if alive
     @return true, if ALIVE; false, otherwise

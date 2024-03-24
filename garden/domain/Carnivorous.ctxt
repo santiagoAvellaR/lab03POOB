@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=Carnivorous
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Carnivorous\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ representing\ a\ carnivorous\ plant\ in\ the\ garden.\r\n\ Extends\ Flower.\r\n
 comment1.params=garden\ row\ column
 comment1.target=Carnivorous(Garden,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Carnivorous.\r\n\r\n\ @param\ garden\ The\ garden\ where\ the\ carnivorous\ plant\ is\ located.\r\n\ @param\ row\ The\ row\ position\ of\ the\ carnivorous\ plant.\r\n\ @param\ column\ The\ column\ position\ of\ the\ carnivorous\ plant.\r\n
 comment2.params=targetRow\ targetColumn
 comment2.target=int[]\ findClosestFlowerAlive(int,\ int)
+comment2.text=\r\n\ Finds\ the\ closest\ alive\ flower\ to\ the\ given\ position.\r\n\r\n\ @param\ targetRow\ The\ row\ position\ to\ search\ around.\r\n\ @param\ targetColumn\ The\ column\ position\ to\ search\ around.\r\n\ @return\ An\ array\ containing\ the\ row\ and\ column\ positions\ of\ the\ closest\ alive\ flower.\r\n
 comment3.params=
 comment3.target=void\ act()
+comment3.text=\r\n\ Performs\ an\ action\ for\ the\ carnivorous\ plant.\r\n\ The\ carnivorous\ plant\ moves\ towards\ the\ closest\ alive\ flower\ and\ consumes\ it.\r\n
 comment4.params=row\ column
 comment4.target=void\ move(int,\ int)
+comment4.text=\r\n\ Moves\ the\ carnivorous\ plant\ to\ the\ specified\ position.\r\n\r\n\ @param\ row\ The\ new\ row\ position.\r\n\ @param\ column\ The\ new\ column\ position.\r\n
 numComments=5

@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Agent
+comment0.text=\r\n\ Abstract\ class\ representing\ an\ agent.\r\n
 comment1.params=
 comment1.target=Agent()
 comment1.text=Create\ a\ new\ agent\r\n\ \r\n
@@ -17,6 +18,7 @@ comment5.target=int\ getTime()
 comment5.text=Returns\ the\ time\r\n\ \ \ \ @return\ \r\n
 comment6.params=time
 comment6.target=void\ setTime(int)
+comment6.text=\r\n\ Sets\ the\ time\ elapsed\ for\ the\ agent.\r\n\r\n\ @param\ time\ The\ time\ elapsed\ to\ set.\r\n
 comment7.params=
 comment7.target=boolean\ isAlive()
 comment7.text=Returns\ if\ alive\r\n\ \ \ \ @return\ true,\ if\ ALIVE;\ false,\ otherwise\r\n

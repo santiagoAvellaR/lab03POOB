@@ -1,12 +1,15 @@
 #BlueJ class context
 comment0.target=Thing
-comment0.text=No\ olviden\ adicionar\ la\ documentacion
+comment0.text=\r\n\ Interface\ representing\ a\ Thing.\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ Performs\ an\ action.\r\n
 comment2.params=
 comment2.target=int\ shape()
+comment2.text=\r\n\ Returns\ the\ shape\ of\ the\ Thing.\r\n\r\n\ @return\ The\ shape\ of\ the\ Thing.\r\n
 comment3.params=
 comment3.target=java.awt.Color\ getColor()
+comment3.text=\r\n\ Returns\ the\ color\ of\ the\ Thing.\r\n\r\n\ @return\ The\ color\ of\ the\ Thing.\r\n
 comment4.params=
 comment4.target=boolean\ is()
 numComments=5
