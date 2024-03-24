@@ -79,6 +79,10 @@ public class Drosera extends Flower
                 else{
                     daysWithoutEating++;
                     garden.numberWaterBlocks--;
+                    if(daysWithoutEating >= 3){
+                        color = Color.black;
+                        changeState('d');
+                    }
                 }
                 move(closestFlowerPosition[0], closestFlowerPosition[1]);
             }

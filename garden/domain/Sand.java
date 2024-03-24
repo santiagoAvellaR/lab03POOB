@@ -21,7 +21,7 @@ public class Sand implements Thing
         this.row=row;
         this.column=column;
         garden.setThing(row,column,(Thing)this);  
-        color=color.gray;
+        color=color.darkGray;
         garden.numberSandBlocks++;
         time = garden.time;
     }

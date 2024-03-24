@@ -59,7 +59,7 @@ public class Gardener extends Agent implements Thing{
     }
 
     public void move(int row, int column){
-        garden.setThing(row, column, null);
+        garden.setThing(this.row, this.column, null);
         this.row = row;
         this.column = column;
         garden.setThing(row, column, this);
@@ -135,7 +135,7 @@ public class Gardener extends Agent implements Thing{
                         new Flower(garden, twoEmptySpaces[2], twoEmptySpaces[3]);
                     }
                     else if(selectTheAgentWithMinimunNumber() == garden.numberOfCarnivorous){
-                        new Carnivorous(garden, twoEmptySpaces[2], twoEmptySpaces[3]);
+                        new Carnivorous(garden, twoEmptySpaces[2], twoEmptySpaces[3]).setTime(garden.time+1);
                     }
                     else if(selectTheAgentWithMinimunNumber() == garden.numberSandBlocks){
                         new Sand(garden, twoEmptySpaces[2], twoEmptySpaces[3]);

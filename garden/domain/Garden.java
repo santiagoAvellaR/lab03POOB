@@ -26,11 +26,15 @@ public class Garden{
             }
         }
         new Water(this, 0, 0);
+       
         for (int i=1;i<5;i++){
             for (int j=1;j<5;j++){
                 new Water(this,LENGTH-i,LENGTH-j);
+
             }
         }
+        Gardener Santiago =  new Gardener(this, 5, 5);
+        Gardener Daniel =  new Gardener(this, 10, 10);
         //someThings();
     }
 
@@ -60,7 +64,6 @@ public class Garden{
     }
     
     public void ticTac(){
-        System.out.println("click");
         for (int r=0;r<LENGTH;r++){
             for (int c=0;c<LENGTH;c++){
                 Thing thing = garden[r][c];

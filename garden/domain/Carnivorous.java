@@ -1,6 +1,7 @@
 package domain;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.awt.Color;
 
 
 /**
@@ -47,14 +48,14 @@ public class Carnivorous extends Flower{
     
     @Override
     public void act() {
-        //System.out.println("tiempo del jardin: " + garden.time + " tiempo de la Carnivora: " + getTime());
+  
         if (getTime()==garden.time){
             int[] closestFlowerPosition = findClosestFlowerAlive(row, column);
             if (closestFlowerPosition[0] != -1 && closestFlowerPosition[1] != -1) {
-                Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
-                flower.changeState('d');
-                move(closestFlowerPosition[0], closestFlowerPosition[1]);
-                garden.numberOfFlowers--;
+                    Flower flower = (Flower) garden.getThing(closestFlowerPosition[0], closestFlowerPosition[1]);
+                    flower.changeState('d');
+                    move(closestFlowerPosition[0], closestFlowerPosition[1]);
+                    garden.numberOfFlowers--;
             }
             turn();
         }
