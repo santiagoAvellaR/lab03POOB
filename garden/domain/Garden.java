@@ -36,8 +36,8 @@ public class Garden{
 
             }
         }
-        Gardener Santiago =  new Gardener(this, 5, 5);
-        Gardener Daniel =  new Gardener(this, 10, 10);
+        //Gardener Santiago =  new Gardener(this, 5, 5);
+        //Gardener Daniel =  new Gardener(this, 10, 10);
         //someThings();
     }
     
